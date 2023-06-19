@@ -15,12 +15,12 @@ public class ZomatoDriver {
 				int a = Integer.parseInt(sc.nextLine());
 				if (a == 1) {
 					Zomato.admin();
-					}
+				}
 				if (a == 2) {
 					Zomato.customer();
-					
+
 				}
-				if(a==0)
+				if (a == 0)
 					return;
 			} catch (Exception e) {
 

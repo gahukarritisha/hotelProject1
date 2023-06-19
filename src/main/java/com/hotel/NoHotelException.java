@@ -1,5 +1,5 @@
 package com.hotel;
 
-public class NoHotelException extends Exception{
+public class NoHotelException extends Exception {
 
 }
