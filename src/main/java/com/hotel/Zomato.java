@@ -44,6 +44,7 @@ public class Zomato {
 			customer = new Customer(name, adress, contact, getHotel());
 		} catch (NoHotelException e) {
 			System.out.println("no hotel present");
+			return;
 		}
 		int choice = 1000;
 		while (choice != 0) {
