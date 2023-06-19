@@ -1,6 +1,6 @@
 package com.hotel;
 
-public class Item {
+class Item {
 
 	private String name;
 	private double price;
@@ -10,6 +10,7 @@ public class Item {
 		this.name = name;
 		this.price = price;
 	}
+	
 	@Override
 	public String toString() {
 		return "Item [name=" + name + ", price=" + price + "]";
@@ -20,6 +21,20 @@ public class Item {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+
+	public boolean equals(Object object) {
+		Item item = (Item)object;
+		return this.toString().equals(item.toString());
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
 	
 	
 

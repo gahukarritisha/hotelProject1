@@ -1,14 +1,16 @@
 package com.hotel;
 
-public class Admin {
-	Hotel hotel;
-	public void addHotel() {
+import java.util.ArrayList;
+
+class Admin {
+	private Hotel hotel;
+	public void addHotel(ArrayList<Hotel>hotels) {
 		// TODO Auto-generated method stub
 		String name = Zomato.sc.nextLine();
-		Zomato.hotels.add(new Hotel(name));
+		hotels.add(new Hotel(name));
 
 	}
-	public void addFood() {
+	public void addFood(Hotel hotel) {
 		hotel = Zomato.getHotel();
 		hotel.addFood();
 	}
