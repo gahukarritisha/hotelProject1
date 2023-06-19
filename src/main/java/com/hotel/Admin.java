@@ -6,13 +6,14 @@ class Admin {
 	private Hotel hotel;
 	public void addHotel(ArrayList<Hotel>hotels) {
 		// TODO Auto-generated method stub
+		System.out.println("enter hotel name ");
 		String name = Zomato.sc.nextLine();
 		hotels.add(new Hotel(name));
 
 	}
-	public void addFood(Hotel hotel) throws NoHotelException {
+	public void addFood(Hotel hotel) {
 		
-		hotel = Zomato.getHotel();
+		this.hotel = hotel;
 		hotel.addFood();
 	}
 

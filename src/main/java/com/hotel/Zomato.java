@@ -13,20 +13,21 @@ public class Zomato {
 		Admin admin = new Admin();
 		int choice;
 		do{
-			System.out.println("1.add food    2.add hotel");
+			System.out.println("1.add food    2.add hotel   0.exit");
 			
 			choice = Integer.parseInt(sc.nextLine());
 			try {
 			if(choice==1)
-			admin.addFood(getHotel());
+				admin.addFood(getHotel());
 			if(choice==2)
-			admin.addHotel(hotels);
-			if(choice==2)
-				break;
+				admin.addHotel(hotels);
+			if(choice==0)
+				return;
+			
 		}catch(NoHotelException e) {
 			System.out.println("no hotels present");
 		}
-		}while(choice!=0);
+		}while(true);
 
 	}
 	public static void customer() {
@@ -44,7 +45,7 @@ public class Zomato {
 		}
 		int choice = 1000;
 		while(choice!=0) {
-			System.out.println("1.Add item    2.remove Item    3.showBill    4.order");
+			System.out.println("1.Add item    2.remove Item    3.showBill    4.order   0.exit");
 			choice = Integer.parseInt(sc.nextLine());
 			if(choice==1)
 				customer.addItem();
@@ -63,7 +64,6 @@ public class Zomato {
 	}
 	protected static Hotel getHotel() throws NoHotelException {
 		if(hotels.size()==0) {
-			System.out.println("no hotels present");
 			throw new NoHotelException();
 		}
 		System.err.println("choose hotel");

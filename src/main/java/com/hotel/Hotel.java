@@ -34,9 +34,9 @@ class Hotel {
 	}
 	public void addFood() {
 		// TODO Auto-generated method stub
-		System.out.println("enter name");
+		System.out.println("enter food name");
 		String name = Zomato.sc.nextLine();
-		System.out.println("enter price");
+		System.out.println("enter food price");
 		double price = Double.parseDouble(Zomato.sc.nextLine());
 		foods.add(new Item(name,price));
 	}

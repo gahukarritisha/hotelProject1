@@ -26,7 +26,7 @@ class Customer {
 			System.out.println("insert quantity");
 			food.setQuantity(Integer.parseInt(Zomato.sc.nextLine()));
 			order.add(food);
-			
+			return;
 		}
 		if(food!=null) {
 			food = order.remove(order.indexOf(food));
