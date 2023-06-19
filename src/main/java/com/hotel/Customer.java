@@ -9,5 +9,6 @@ public class Customer {
 		
 		hotel = Zomato.getHotel();
 	}
+	
 
 }
