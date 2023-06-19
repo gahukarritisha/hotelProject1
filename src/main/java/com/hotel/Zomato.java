@@ -46,6 +46,7 @@ public class Zomato {
 			System.out.println("no hotel present");
 			return;
 		}
+		System.out.println("hello world");
 		int choice = 1000;
 		while (choice != 0) {
 			System.out.println("1.Add item    2.remove Item    3.showBill    4.order   0.exit");
