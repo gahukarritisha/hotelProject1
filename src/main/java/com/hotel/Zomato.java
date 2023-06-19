@@ -9,14 +9,24 @@ public class Zomato {
 	static Scanner sc = ZomatoDriver.sc;
 	private static ArrayList<Hotel> hotels = new ArrayList<Hotel>();
 	public static void admin() {
+		
 		Admin admin = new Admin();
-		int choice = 1000;
-		while(choice!=0) {
-			admin.addFood(getHotel());
-			admin.addHotel(hotels);
-			System.out.println();
+		int choice;
+		do{
+			System.out.println("1.add food    2.add hotel");
+			
 			choice = Integer.parseInt(sc.nextLine());
+			try {
+			if(choice==1)
+			admin.addFood(getHotel());
+			if(choice==2)
+			admin.addHotel(hotels);
+			if(choice==2)
+				break;
+		}catch(NoHotelException e) {
+			System.out.println("no hotels present");
 		}
+		}while(choice!=0);
 
 	}
 	public static void customer() {
@@ -26,20 +36,36 @@ public class Zomato {
 		String adress = sc.nextLine();
 		System.out.println("enter contact");
 		long contact = Long.parseLong(sc.nextLine());
-		Customer customer = new Customer(name,adress,contact,getHotel());
+		Customer customer = null;
+		try {
+		customer = new Customer(name,adress,contact,getHotel());
+		}catch(NoHotelException e) {
+			System.out.println("no hotel present");
+		}
 		int choice = 1000;
 		while(choice!=0) {
-			customer.addItem();
-			customer.removeItem();
-			customer.showBill();
-			customer.order();
-			
-			System.out.println();
+			System.out.println("1.Add item    2.remove Item    3.showBill    4.order");
 			choice = Integer.parseInt(sc.nextLine());
+			if(choice==1)
+				customer.addItem();
+			if(choice==2)
+				customer.removeItem();
+			if(choice==3)
+				customer.showBill();
+			if(choice==4)
+				if(customer.order())
+					break;
+	
+			
 		}
+		System.out.println("thanks for visiting");
 		
 	}
-	protected static Hotel getHotel() {
+	protected static Hotel getHotel() throws NoHotelException {
+		if(hotels.size()==0) {
+			System.out.println("no hotels present");
+			throw new NoHotelException();
+		}
 		System.err.println("choose hotel");
 		int i = 1;
 		for(Hotel hotel:hotels) {

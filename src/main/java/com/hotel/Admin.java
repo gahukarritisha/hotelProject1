@@ -10,7 +10,8 @@ class Admin {
 		hotels.add(new Hotel(name));
 
 	}
-	public void addFood(Hotel hotel) {
+	public void addFood(Hotel hotel) throws NoHotelException {
+		
 		hotel = Zomato.getHotel();
 		hotel.addFood();
 	}
